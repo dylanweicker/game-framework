@@ -4,17 +4,14 @@
   "description": "A basic multiplayer game framework",
   "main": "server.js",
   "scripts": {
-    "postinstall": "bower install"
+    "postinstall": "bower install",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/penumbragames/game-framework.git"
   },
-  "author": {
-    "name": "Alvin Lin",
-    "email": "alvin@omgimanerd.tech",
-    "url": "http://omgimanerd.tech"
-  },
+  "author": "Alvin Lin <alvin@omgimanerd.tech> (http://omgimanerd.tech)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/penumbragames/game-framework/issues"
@@ -25,5 +22,13 @@
     "morgan": "^1.8.1",
     "pug": "^2.0.0-beta11",
     "socket.io": "^1.7.2"
-  }
+  },
+  "homepage": "https://github.com/penumbragames/game-framework#readme",
+  "directories": {
+    "lib": "lib"
+  },
+  "devDependencies": {},
+  "keywords": [
+    "game"
+  ]
 }

@@ -11,6 +11,8 @@
  */
 function Drawing(context) {
   this.context = context;
+  this.playerImage = Drawing.createImage("./public/images/arrow.jpg", 32, 32);
+  this.enemyImage = Drawing.createImage("./public/images/enemy.jpg", 32, 32);
 }
 
 /**
@@ -43,19 +45,19 @@ Drawing.prototype.clear = function() {
   var canvas = this.context.canvas;
   this.context.clearRect(0, 0, canvas.width, canvas.height);
 };
-
 /**
- * Draws the player's sprite as a red circle.
+ * Draws the player's sprite as a purple arrow
  * @param {number} x The x coordinate of the player
  * @param {number} y The y coordinate of the player
+ * @param {number} orientation The degree angle of the player
  * @param {number} size The radial size of the player
  */
-Drawing.prototype.drawSelf = function(x, y, size) {
+Drawing.prototype.drawSelf = function(x, y, orientation, size) {
   this.context.save();
-  this.context.beginPath();
-  this.context.fillStyle = 'green';
-  this.context.arc(x, y, size, 0, Math.PI * 2);
-  this.context.fill();
+  this.context.translate(x, y);
+  this.context.rotate(orientation*Math.PI/180);
+  this.context.translate(-x, -y);
+  this.context.drawImage(this.playerImage, x, y);
   this.context.restore();
 };
 
@@ -63,13 +65,14 @@ Drawing.prototype.drawSelf = function(x, y, size) {
  * Draws other players' sprite as a red circle.
  * @param {number} x The x coordinate of the player
  * @param {number} y The y coordinate of the player
+ * @param {number} orientation The degree angle of the player
  * @param {number} size The radial size of the player
  */
-Drawing.prototype.drawOther = function(x, y, size) {
+Drawing.prototype.drawOther = function(x, y, orientation, size) {
   this.context.save();
-  this.context.beginPath();
-  this.context.fillStyle = 'red';
-  this.context.arc(x, y, size, 0, Math.PI * 2);
-  this.context.fill();
+  this.context.translate(x, y);
+  this.context.rotate(orientation*Math.PI/180);
+  this.context.translate(-x, -y);
+  this.context.drawImage(this.enemyImage, x, y);
   this.context.restore();
 };

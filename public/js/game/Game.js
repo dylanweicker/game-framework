@@ -107,6 +107,7 @@ Game.prototype.draw = function() {
   this.drawing.drawSelf(
     this.selfPlayer.x,
     this.selfPlayer.y,
+	this.selfPlayer.orientation,
     this.selfPlayer.hitbox
   );
 
@@ -115,6 +116,7 @@ Game.prototype.draw = function() {
     this.drawing.drawOther(
       player.x,
       player.y,
+	  player.orientation,
       player.hitbox
     );
   }
